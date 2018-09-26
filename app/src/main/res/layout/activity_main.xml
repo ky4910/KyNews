@@ -14,4 +14,17 @@
         app:popupTheme="@style/AlertDialog.AppCompat.Light">
     </android.support.v7.widget.Toolbar>
 
+    <Button
+        android:id="@+id/getNewsBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Get the news"
+        android:textAllCaps="false"/>
+
+    <TextView
+        android:id="@+id/newsContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </FrameLayout>
