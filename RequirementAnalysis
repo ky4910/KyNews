@@ -1,3 +1,9 @@
+Prepare =>
+	学习掌握Flutter
+	数据来源问题(数据库中图片的存储，新闻内容的爬取)
+	ListView RecycleView选择
+
+
 1.Toolbar可以选择相应领域的新闻
 2.点击进入一条新闻的内容，有评论功能
 3.下拉可更新新闻，上拉可以加载更多新闻（一页显示5条新闻）
@@ -8,3 +14,4 @@
 
 root@localhost: +f,gaex2dg+K
 A temporary password is generated for root@localhost: F72GossqQk:H
+
