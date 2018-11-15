@@ -1,30 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <!--tools:context="com.example.ky4910.kynews.MainActivity"-->
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/tool_Bar"
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/pst"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/AlertDialog.AppCompat.Light">
-    </android.support.v7.widget.Toolbar>
+        android:layout_height="48dip"
+        android:background="@color/color_theme"
+        app:pstsShouldExpand="true"
+        app:pstsTabBackground="@color/transparent"
+        app:pstsIndicatorHeight="5dp"
+        app:pstsIndicatorColor="@color/yellow"
+        app:pstsTextAllCaps="false"
+        app:pstsUnderlineHeight="15dp"/>
 
-    <Button
-        android:id="@+id/getNewsBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Get the news"
-        android:textAllCaps="false"/>
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/pst"/>
 
-    <TextView
-        android:id="@+id/newsContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+</RelativeLayout>
 
-</FrameLayout>
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--android:id="@+id/activity_main"-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--<android.support.v7.widget.Toolbar-->
+    <!--android:id="@+id/tool_Bar"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="?attr/actionBarSize"-->
+    <!--android:background="?attr/colorPrimary"-->
+    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+    <!--app:popupTheme="@style/AlertDialog.AppCompat.Light">-->
+<!--</android.support.v7.widget.Toolbar>-->
+
+<!--<Button-->
+    <!--android:id="@+id/getNewsBtn"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:text="Get the news"-->
+    <!--android:textAllCaps="false"/>-->
+
+<!--<TextView-->
+    <!--android:id="@+id/newsContent"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content" />-->
+
+<!--</FrameLayout>-->
