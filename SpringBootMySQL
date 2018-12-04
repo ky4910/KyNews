@@ -1,0 +1,33 @@
+
+Title: Spring Boot connect MySQL
+SubTitle: Spring Boot MySQL database connect by JPA with hibernate
+
+---------------------------------------------------------------------
+
+step1: Create spring boot gradle project
+https://start.spring.io/
+
+step2: Import SpringMySQLJpa project in IntelliJ IDEA
+
+step3: Create sub packages for project structure
+config, ctrl, model, repo, service
+
+step4: Add annotation in main class for initialize component, entity and repository
+@ComponentScan("com.example.SpringMySQLJpa")
+@EntityScan("com.example.SpringMySQLJpa.model")
+@EnableJpaRepositories(basePackages = {"com.example.SpringMySQLJpa.repo"})
+
+step5: Create/Add model(s)
+
+step6: Create repository for model
+
+step7: Create service interface and implementable class for controller and repository
+		and create controller for User
+
+step8: Configure application yml file for MySQL
+
+step10: Now run the project ... and add some data in User table
+
+step11: now test the project from browser
+
+

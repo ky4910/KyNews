@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.astuetz.PagerSlidingTabStrip;
+import com.example.ky4910.kynews.view.fragment.EntertainmentFragment;
+import com.example.ky4910.kynews.view.fragment.FinanceFragment;
+import com.example.ky4910.kynews.view.fragment.MainnewsFragment;
 
 import java.util.ArrayList;
 

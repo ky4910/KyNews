@@ -14,10 +14,9 @@
         android:background="@color/color_theme"
         app:pstsShouldExpand="true"
         app:pstsTabBackground="@color/transparent"
-        app:pstsIndicatorHeight="5dp"
+        app:pstsIndicatorHeight="50dp"
         app:pstsIndicatorColor="@color/yellow"
-        app:pstsTextAllCaps="false"
-        app:pstsUnderlineHeight="15dp"/>
+        app:pstsTextAllCaps="false"/>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
