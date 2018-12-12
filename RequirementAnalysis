@@ -15,5 +15,5 @@ Prepare =>
 数据通过爬虫腾讯新闻获取标题和新闻内容链接
 
 编写BaseActivity 和 BaseFragment
-
+多个界面滑动形式=》常用方法是采用Tablayout+ViewPager+Fragment
 

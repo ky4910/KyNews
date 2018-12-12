@@ -1,57 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <!--tools:context="com.example.ky4910.kynews.MainActivity"-->
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--tools:context="com.example.ky4910.kynews.MainActivity">-->
 
-    <com.astuetz.PagerSlidingTabStrip
-        android:id="@+id/pst"
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tl_tabs"
         android:layout_width="match_parent"
-        android:layout_height="48dip"
-        android:background="@color/color_theme"
-        app:pstsShouldExpand="true"
-        app:pstsTabBackground="@color/transparent"
-        app:pstsIndicatorHeight="50dp"
-        app:pstsIndicatorColor="@color/yellow"
-        app:pstsTextAllCaps="false"/>
+        android:layout_height="40dp"
+        app:tabMode="scrollable"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/pager"
+        android:id="@+id/vp_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/pst"/>
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
 
-</RelativeLayout>
+</LinearLayout>
 
-<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--android:id="@+id/activity_main"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent">-->
 
-<!--<android.support.v7.widget.Toolbar-->
-    <!--android:id="@+id/tool_Bar"-->
+
+    <!--<com.astuetz.PagerSlidingTabStrip-->
+    <!--android:id="@+id/pst"-->
     <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="?attr/actionBarSize"-->
-    <!--android:background="?attr/colorPrimary"-->
-    <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-    <!--app:popupTheme="@style/AlertDialog.AppCompat.Light">-->
-<!--</android.support.v7.widget.Toolbar>-->
+    <!--android:layout_height="48dip"-->
+    <!--android:background="@color/color_theme"-->
+    <!--app:pstsShouldExpand="true"-->
+    <!--app:pstsTabBackground="@color/transparent"-->
+    <!--app:pstsIndicatorHeight="50dp"-->
+    <!--app:pstsIndicatorColor="@color/yellow"-->
+    <!--app:pstsTextAllCaps="false"/>-->
 
-<!--<Button-->
-    <!--android:id="@+id/getNewsBtn"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center"-->
-    <!--android:text="Get the news"-->
-    <!--android:textAllCaps="false"/>-->
+    <!--<android.support.v4.view.ViewPager-->
+    <!--android:id="@+id/pager"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_below="@+id/pst"/>-->
 
-<!--<TextView-->
-    <!--android:id="@+id/newsContent"-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content" />-->
-
-<!--</FrameLayout>-->
