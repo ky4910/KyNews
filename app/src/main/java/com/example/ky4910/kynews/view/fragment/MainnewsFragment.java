@@ -8,13 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.ky4910.base.BaseFragment;
 import com.example.ky4910.kynews.R;
 
 /**
  * Created by ky4910 on 2018/11/15.
  */
 
-public class MainnewsFragment extends Fragment{
+public class MainnewsFragment extends BaseFragment {
 
     public MainnewsFragment() {}
 

@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout mTab;
     private ViewPager viewPager;
     private List<String> tabNameList = new ArrayList<>();
-    private List<Fragment> newsFragments = new ArrayList<>();
 
     //the news item titles
     private String[] titleNames = {"要闻", "财经", "娱乐"};
