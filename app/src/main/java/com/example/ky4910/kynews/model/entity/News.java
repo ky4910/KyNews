@@ -5,7 +5,15 @@ public class News {
     private String title;
     private String content;
     private String channel;
-    private String imgstc;
+    private int imgsrc;
+
+    public News(String id, String title, String content, String channel, int imgsrc) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.channel = channel;
+        this.imgsrc = imgsrc;
+    }
 
     public String getId() {
         return id;
@@ -39,11 +47,11 @@ public class News {
         this.channel = channel;
     }
 
-    public String getImgstc() {
-        return imgstc;
+    public int getImgsrc() {
+        return imgsrc;
     }
 
-    public void setImgstc(String imgstc) {
-        this.imgstc = imgstc;
+    public void setImgsrc(int imgsrc) {
+        this.imgsrc = imgsrc;
     }
 }
