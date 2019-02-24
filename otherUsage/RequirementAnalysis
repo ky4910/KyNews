@@ -5,6 +5,11 @@ Prepare =>
 	数据来源问题(数据库中图片的存储，新闻内容的爬取)
 	ListView RecycleView选择
 
+Android Studio 3.2.1
+CompileSdkVersion 27
+minSdkVersion 21
+targetSdkVersion 27
+build:Gradle 3.2.1
 
 1.Toolbar可以选择相应领域的新闻
 2.点击进入一条新闻的内容，有评论功能
@@ -16,4 +21,10 @@ Prepare =>
 
 编写BaseActivity 和 BaseFragment
 多个界面滑动形式=》常用方法是采用Tablayout+ViewPager+Fragment
+
+data URL => http://localhost:8090/KimDemo-0.0.1-SNAPSHOT/test/mynews/all
+
+
+Retrofit+RxJava+OkHttp 让网络请求变的简单-基础篇 =》https://www.jianshu.com/p/5bc866b9cbb9
+Retrofit+RxJava+OkHttp 让网络请求变的简单-封装篇 =》https://juejin.im/entry/585c8b71ac502e00671e408e
 
