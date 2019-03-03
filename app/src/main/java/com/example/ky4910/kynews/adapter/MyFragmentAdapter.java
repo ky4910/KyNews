@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.ky4910.kynews.utils.TabFactory;
+import com.example.ky4910.kynews.view.fragment.NewsListFragment;
 
 import java.util.List;
 
@@ -15,24 +15,17 @@ import java.util.List;
 public class MyFragmentAdapter extends FragmentStatePagerAdapter {
 
     private List<String> mTabTitles;
-    private String[] titleNames = {"要闻", "财经", "娱乐"};
+    private List<NewsListFragment> mFragments;
 
-    public MyFragmentAdapter(FragmentManager fm, List<String> titles) {
+    public MyFragmentAdapter(FragmentManager fm, List<String> titles, List<NewsListFragment> fragments) {
         super(fm);
         this.mTabTitles = titles;
+        this.mFragments = fragments;
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position) {
-            case 0:
-                return TabFactory.mTabFragment.get(0);
-            case 1:
-                return TabFactory.mTabFragment.get(1);
-            case 2:
-                return TabFactory.mTabFragment.get(2);
-        }
-        return TabFactory.mTabFragment.get(0);
+        return mFragments.get(position);
     }
 
     @Override
@@ -44,6 +37,6 @@ public class MyFragmentAdapter extends FragmentStatePagerAdapter {
     // 具体参见https://blog.csdn.net/Ivenes/article/details/60133099
     @Override
     public CharSequence getPageTitle(int position) {
-        return titleNames[position];
+        return mTabTitles.get(position);
     }
 }

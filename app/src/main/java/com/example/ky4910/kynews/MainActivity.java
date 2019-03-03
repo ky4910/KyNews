@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.ky4910.kynews.adapter.MyFragmentAdapter;
+import com.example.ky4910.kynews.utils.TabFactory;
+import com.example.ky4910.kynews.view.fragment.NewsListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TabLayout mTab;
     private ViewPager viewPager;
-    private List<String> tabNameList = new ArrayList<>();
+    private List<NewsListFragment> mFragments = new ArrayList<>();
+    private List<String> mTabTitles = new ArrayList<>();
 
     //the news item titles
     private String[] titleNames = {"要闻", "财经", "娱乐"};
@@ -27,22 +30,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        mTabTitles.add("要闻");
+//        mTabTitles.add("财经");
+//        mTabTitles.add("娱乐");
+
         initTabTitle();
         initViews();
 
-        viewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), tabNameList));
+        viewPager.setAdapter(new MyFragmentAdapter(getSupportFragmentManager(), mTabTitles, TabFactory.mTabFragment));
         mTab.setupWithViewPager(viewPager);
     }
 
     protected void initViews() {
-        this.viewPager = (ViewPager)findViewById(R.id.vp_content);
-        this.mTab = (TabLayout)findViewById(R.id.tl_tabs);
+        this.viewPager = findViewById(R.id.vp_content);
+        this.mTab = findViewById(R.id.tl_tabs);
     }
 
     protected void initTabTitle() {
         for (int i = 0; i < titleNames.length; i++) {
-            tabNameList.add(String.format(Locale.CHINA, titleNames[i]));
+            mTabTitles.add(String.format(Locale.CHINA, titleNames[i]));
         }
     }
-
 }

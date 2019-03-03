@@ -1,9 +1,7 @@
 package com.example.ky4910.kynews.utils;
 
 import com.example.ky4910.base.BaseFragment;
-import com.example.ky4910.kynews.view.fragment.EntertainmentFragment;
-import com.example.ky4910.kynews.view.fragment.FinanceFragment;
-import com.example.ky4910.kynews.view.fragment.FrontpageFragment;
+import com.example.ky4910.kynews.view.fragment.NewsListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +12,12 @@ import java.util.List;
 
 public class TabFactory {
 
-    public final static List<BaseFragment> mTabFragment = new ArrayList<>();
+    public final static List<NewsListFragment> mTabFragment = new ArrayList<>();
 
     static {
-        mTabFragment.add(FrontpageFragment.newInstance("要闻"));
-        mTabFragment.add(FinanceFragment.newInstance("财经"));
-        mTabFragment.add(EntertainmentFragment.newInstance("娱乐"));
+        mTabFragment.add(NewsListFragment.newInstance("要闻"));
+        mTabFragment.add(NewsListFragment.newInstance("财经"));
+        mTabFragment.add(NewsListFragment.newInstance("娱乐"));
     }
 
 /*
