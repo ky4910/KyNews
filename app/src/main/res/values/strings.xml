@@ -3,4 +3,16 @@
     <string name="mainNews">要闻</string>
     <string name="financeNews">财经</string>
     <string name="enterNews">娱乐</string>
+    <string name="none">Nothing</string>
+
+    <string-array name="allNewsTypes">
+        <item>要闻</item>
+        <item>财经</item>
+        <item>娱乐</item>
+    </string-array>
+
+    <string name="news">新闻</string>
+    <string name="videos">视频</string>
+    <string name="mine">我的</string>
+
 </resources>

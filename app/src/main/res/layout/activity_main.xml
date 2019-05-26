@@ -7,17 +7,28 @@
     android:orientation="vertical">
     <!--tools:context="com.example.ky4910.kynews.MainActivity">-->
 
-    <android.support.design.widget.TabLayout
-        android:id="@+id/tl_tabs"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:tabMode="scrollable" />
-
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp_content"
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dip"
+        android:layout_weight="1">
     </android.support.v4.view.ViewPager>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dip"/>
+        <!--android:background="@color/line_gray"-->
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="54dip"
+        app:tabIndicatorHeight="0dip">
+    </android.support.design.widget.TabLayout>
+
+    <!--app:tabMaxWidth="0dp"-->
+    <!--app:tabGravity="fill"-->
+    <!--app:tabMode="fixed">-->
 
 </LinearLayout>
 

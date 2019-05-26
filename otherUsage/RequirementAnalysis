@@ -28,3 +28,4 @@ data URL => http://localhost:8090/KimDemo-0.0.1-SNAPSHOT/test/mynews/all
 Retrofit+RxJava+OkHttp 让网络请求变的简单-基础篇 =》https://www.jianshu.com/p/5bc866b9cbb9
 Retrofit+RxJava+OkHttp 让网络请求变的简单-封装篇 =》https://juejin.im/entry/585c8b71ac502e00671e408e
 
+大谷歌技术开发文档=》http://api.dagoogle.cn/news/nlist?cid=4
