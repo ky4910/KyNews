@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:text="财经"
+        android:text="@string/financeNews"
         android:textSize="12sp"/>
 
 </LinearLayout>

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_gravity="center_horizontal"
-        android:text="要闻"
+        android:text="@string/mainNews"
         android:textSize="12sp"/>
 
 </LinearLayout>

@@ -5,31 +5,36 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.ky4910.kynews.R;
-import com.example.ky4910.kynews.adapter.MyFragmentPagerAdapter;
+import com.example.ky4910.kynews.adapter.NewsFragmentAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NewsFragment extends Fragment{
 
+    @BindView(R.id.tab_layout)
     TabLayout tabLayout;
+    @BindView(R.id.view_pager)
     ViewPager viewPager;
 
     private PagerAdapter pagerAdapter;
-    private List<String> newTypes = new ArrayList<>();
+
+    //tab titles
+    private final int[] TAB_TITLES = new int[]{R.string.mainNews, R.string.enterNews, R.string.financeNews};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-/*
+
+        /*
         newTypes.add("要闻");
         newTypes.add("娱乐");
         newTypes.add("财经");
@@ -42,6 +47,97 @@ public class NewsFragment extends Fragment{
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_news, container, false);
+        View view = inflater.inflate(R.layout.fragment_news, container, false);
+        ButterKnife.bind(this, view);
+
+        initPager();
+        setTabs(tabLayout, getLayoutInflater(), TAB_TITLES);
+
+        return view;
+    }
+
+    private void initPager() {
+        pagerAdapter = new NewsFragmentAdapter(getChildFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //取消平滑切换
+                viewPager.setCurrentItem(tab.getPosition(), false);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    private void setTabs(TabLayout tabLayout, LayoutInflater inflater, int[] tabTitles){
+        for (int i = 0; i < tabTitles.length; i++) {
+            TabLayout.Tab tab = tabLayout.newTab();
+            View view = inflater.inflate(R.layout.item_main_menu, null);
+            tab.setCustomView(view);
+
+            TextView tvTitle = (TextView)view.findViewById(R.id.txt_tab);
+            tvTitle.setText(tabTitles[i]);
+            tabLayout.addTab(tab);
+        }
     }
 }
+
+
+
+/*
+    private void initPager() {
+        pagerAdapter = new NewsFragmentAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(pagerAdapter);
+
+        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                //取消平滑切换
+                viewPager.setCurrentItem(tab.getPosition(), false);
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    private void setTabs(TabLayout tabLayout, LayoutInflater inflater, int[] tabTitles, int[] tabImages){
+        for (int i = 0; i < tabImages.length; i++) {
+            TabLayout.Tab tab = tabLayout.newTab();
+            View view = inflater.inflate(R.layout.item_main_menu, null);
+            tab.setCustomView(view);
+
+            TextView tvTitle = (TextView)view.findViewById(R.id.txt_tab);
+            tvTitle.setText(tabTitles[i]);
+            ImageView imgTab = (ImageView)view.findViewById(R.id.img_tab);
+            imgTab.setImageResource(tabImages[i]);
+            tabLayout.addTab(tab);
+        }
+    }
+
+    protected void initViews() {
+        //create tab and pager fragment
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.container, new NewsTabAndPagerFragment()).commit();
+    }
+}
+*/

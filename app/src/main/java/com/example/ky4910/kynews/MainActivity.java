@@ -11,7 +11,6 @@ import com.example.ky4910.kynews.view.fragment.NewsFragment;
 import com.example.ky4910.kynews.view.fragment.PersonFragment;
 import com.example.ky4910.kynews.view.fragment.VideoFragment;
 
-
 public class MainActivity extends AppCompatActivity {
 
     // GET/POST URL => http://localhost:8090/KimDemo-0.0.1-SNAPSHOT/test/mynews/all
@@ -51,51 +50,4 @@ public class MainActivity extends AppCompatActivity {
             };
 }
 
-
-/*
-    private void initPager() {
-        pagerAdapter = new MainFragmentAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
-
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                //取消平滑切换
-                viewPager.setCurrentItem(tab.getPosition(), false);
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-    }
-
-    private void setTabs(TabLayout tabLayout, LayoutInflater inflater, int[] tabTitles, int[] tabImages){
-        for (int i = 0; i < tabImages.length; i++) {
-            TabLayout.Tab tab = tabLayout.newTab();
-            View view = inflater.inflate(R.layout.item_main_menu, null);
-            tab.setCustomView(view);
-
-            TextView tvTitle = (TextView)view.findViewById(R.id.txt_tab);
-            tvTitle.setText(tabTitles[i]);
-            ImageView imgTab = (ImageView)view.findViewById(R.id.img_tab);
-            imgTab.setImageResource(tabImages[i]);
-            tabLayout.addTab(tab);
-        }
-    }
-
-    protected void initViews() {
-        //create tab and pager fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().add(R.id.container, new NewsTabAndPagerFragment()).commit();
-    }
-}
-*/
 

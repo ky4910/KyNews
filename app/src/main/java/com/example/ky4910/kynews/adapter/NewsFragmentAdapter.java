@@ -4,13 +4,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.ky4910.kynews.view.fragment.NewsFragment;
+import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.EnterNewsFragment;
+import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.FinanceNewsFragment;
+import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.MainNewsFragment;
 import com.example.ky4910.kynews.view.fragment.PersonFragment;
 import com.example.ky4910.kynews.view.fragment.VideoFragment;
 
-public class MainFragmentAdapter extends FragmentPagerAdapter {
+public class NewsFragmentAdapter extends FragmentPagerAdapter {
 
-    public MainFragmentAdapter(FragmentManager fm) {
+    public NewsFragmentAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,13 +21,13 @@ public class MainFragmentAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new NewsFragment();
+                fragment = new MainNewsFragment();
                 break;
             case 1:
-                fragment = new VideoFragment();
+                fragment = new FinanceNewsFragment();
                 break;
             case 2:
-                fragment = new PersonFragment();
+                fragment = new EnterNewsFragment();
                 break;
             default:
                 break;
