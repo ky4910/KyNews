@@ -4,10 +4,12 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_aboutme"
+        android:id="@+id/txt_finance_news"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:text="About Me"/>
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:text="财经"
+        android:textSize="12sp"/>
 
 </LinearLayout>

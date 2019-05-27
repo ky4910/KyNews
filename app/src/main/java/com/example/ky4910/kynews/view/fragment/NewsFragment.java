@@ -5,44 +5,43 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ky4910.kynews.R;
+import com.example.ky4910.kynews.adapter.MyFragmentPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class NewsFragment extends Fragment{
 
-    @BindView(R.id.tab_layout)
     TabLayout tabLayout;
-    @BindView(R.id.view_pager)
     ViewPager viewPager;
 
-    private List<String> names;
+    private PagerAdapter pagerAdapter;
+    private List<String> newTypes = new ArrayList<>();
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
+/*
+        newTypes.add("要闻");
+        newTypes.add("娱乐");
+        newTypes.add("财经");
+
+        pagerAdapter = new MyFragmentPagerAdapter(getChildFragmentManager(), newTypes, mTabFragment);
+        viewPager.setAdapter(pagerAdapter);
+        */
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        //View view = inflater.inflate(R.layout.fragment_person, container, false);
-        //ButterKnife.bind(this, view);
-
-
-        return super.onCreateView(inflater, container, savedInstanceState);
-    }
-
-    private void initData() {
-
+        return inflater.inflate(R.layout.fragment_news, container, false);
     }
 }

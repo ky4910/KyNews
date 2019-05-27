@@ -1,52 +1,58 @@
 package com.example.ky4910.kynews;
 
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.MenuItem;
 
-import com.example.ky4910.kynews.adapter.MainFragmentAdapter;
-import com.example.ky4910.kynews.view.fragment.NewsTabAndPagerFragment;
+import com.example.ky4910.kynews.view.fragment.NewsFragment;
+import com.example.ky4910.kynews.view.fragment.PersonFragment;
+import com.example.ky4910.kynews.view.fragment.VideoFragment;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
     // GET/POST URL => http://localhost:8090/KimDemo-0.0.1-SNAPSHOT/test/mynews/all
 
-    // R.string.XXX, R.drawable.YYY返回类型均为int
-    // menu titles
-    private final int[] MENU_TITLES= {R.string.news, R.string.videos, R.string.mine};
-    //menu icon
-    private final int[] MENU_ICONS = {R.drawable.tab_news_selector, R.drawable.tab_video_selector, R.drawable.tab_me_selector};
-
-    @BindView(R.id.view_pager)
-    ViewPager viewPager;
-    @BindView(R.id.tab_layout)
-    TabLayout tabLayout;
-
-    private PagerAdapter pagerAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        ButterKnife.bind(this);
-
-        initPager();
-        setTabs(tabLayout, getLayoutInflater(), MENU_TITLES, MENU_ICONS);
-
-        //initViews();
+        //防止第一次进入page里内容
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                new NewsFragment()).commit();
     }
 
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Fragment selectedFragment = null;
+                    switch (item.getItemId()) {
+                        case R.id.menu_news:
+                            selectedFragment = new NewsFragment();
+                            break;
+                        case R.id.menu_videos:
+                            selectedFragment = new VideoFragment();
+                            break;
+                        case R.id.menu_person:
+                            selectedFragment = new PersonFragment();
+                            break;
+                    }
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                            selectedFragment).commit();
+                    return true;
+                }
+            };
+}
+
+
+/*
     private void initPager() {
         pagerAdapter = new MainFragmentAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
@@ -91,3 +97,5 @@ public class MainActivity extends AppCompatActivity {
         fragmentManager.beginTransaction().add(R.id.container, new NewsTabAndPagerFragment()).commit();
     }
 }
+*/
+
