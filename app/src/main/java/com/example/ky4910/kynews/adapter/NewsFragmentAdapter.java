@@ -4,11 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.EnterNewsFragment;
+import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.SportsNewsFragment;
 import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.FinanceNewsFragment;
 import com.example.ky4910.kynews.view.fragment.NewsTypeFragment.MainNewsFragment;
-import com.example.ky4910.kynews.view.fragment.PersonFragment;
-import com.example.ky4910.kynews.view.fragment.VideoFragment;
 
 public class NewsFragmentAdapter extends FragmentPagerAdapter {
 
@@ -24,10 +22,10 @@ public class NewsFragmentAdapter extends FragmentPagerAdapter {
                 fragment = new MainNewsFragment();
                 break;
             case 1:
-                fragment = new FinanceNewsFragment();
+                fragment = new SportsNewsFragment();
                 break;
             case 2:
-                fragment = new EnterNewsFragment();
+                fragment = new FinanceNewsFragment();
                 break;
             default:
                 break;

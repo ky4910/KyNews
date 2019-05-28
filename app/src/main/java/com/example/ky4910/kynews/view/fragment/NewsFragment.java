@@ -28,7 +28,7 @@ public class NewsFragment extends Fragment{
     private PagerAdapter pagerAdapter;
 
     //tab titles
-    private final int[] TAB_TITLES = new int[]{R.string.mainNews, R.string.enterNews, R.string.financeNews};
+    private final int[] TAB_TITLES = new int[]{R.string.mainNews, R.string.sportsNews, R.string.financeNews};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -86,7 +86,7 @@ public class NewsFragment extends Fragment{
             View view = inflater.inflate(R.layout.item_main_menu, null);
             tab.setCustomView(view);
 
-            TextView tvTitle = (TextView)view.findViewById(R.id.txt_tab);
+            TextView tvTitle = view.findViewById(R.id.txt_tab);
             tvTitle.setText(tabTitles[i]);
             tabLayout.addTab(tab);
         }

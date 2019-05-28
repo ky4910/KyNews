@@ -10,13 +10,13 @@ import android.view.ViewGroup;
 
 import com.example.ky4910.kynews.R;
 
-public class EnterNewsFragment extends Fragment {
-    public EnterNewsFragment() {
+public class SportsNewsFragment extends Fragment {
+    public SportsNewsFragment() {
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.enter_news, container, false);
+        return inflater.inflate(R.layout.sports_news, container, false);
     }
 }
