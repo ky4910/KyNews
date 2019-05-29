@@ -34,7 +34,7 @@ public class OkHttpManager {
     //Retrofit封装
     public Retrofit getRetrofit(OkHttpClient okHttpClient) {
         Retrofit.Builder builder = new Retrofit.Builder()
-                .baseUrl("http://api.dagoogle.cn/news/nlist?cid=9/")
+                .baseUrl("http://api.dagoogle.cn/news/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(okHttpClient);

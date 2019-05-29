@@ -40,7 +40,9 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         ImageView imageView;
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
-//        Glide.with(mContext).load(listBean.getHeadpic()).into(holder.)
+        Glide.with(mContext).load(listBean.getHeadpic()).into(holder.imageView);
+        holder.textTitle.setText(listBean.getTitle());
+//        holder.textTitle.setText(listBean.getPub_time());
     }
 
     @Override

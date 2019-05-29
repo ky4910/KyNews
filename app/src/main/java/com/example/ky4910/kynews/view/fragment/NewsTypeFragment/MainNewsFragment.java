@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -27,8 +28,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainNewsFragment extends Fragment {
 
-    @BindView(R.id.main_news_rcviews)
-    RecyclerView recyclerView;
+    private View view;
+//    @BindView(R.id.main_news_rcviews)
+    private RecyclerView recyclerView;
 
     private List<NewsBean.DataBean.ListBean> listBeans;
     MainNewsRvAdapter rvAdapter;
@@ -40,7 +42,9 @@ public class MainNewsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         initRetrofit();
-        return inflater.inflate(R.layout.main_news, container, false);
+        view = inflater.inflate(R.layout.main_news, container, false);
+        return view;
+//        return inflater.inflate(R.layout.main_news, container, false);
     }
 
     private void initRetrofit() {
@@ -62,7 +66,14 @@ public class MainNewsFragment extends Fragment {
     }
 
     private void initData(NewsBean datas) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        recyclerView = view.findViewById(R.id.main_news_rcviews);
+        //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
+        //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.VERTICAL,false));
+        //设置item的分割线
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
+                DividerItemDecoration.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         rvAdapter = new MainNewsRvAdapter(this.getActivity(), datas.getData().getList());
         recyclerView.setAdapter(rvAdapter);

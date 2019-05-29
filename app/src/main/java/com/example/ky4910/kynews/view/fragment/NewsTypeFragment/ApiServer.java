@@ -5,6 +5,7 @@ import com.example.ky4910.kynews.model.entity.NewsBean;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface ApiServer {
     String MAIN_NEWS_URL = "http://api.dagoogle.cn/news/nlist?cid=9/";
@@ -12,6 +13,6 @@ public interface ApiServer {
     String FINANCE_NEWS_URL = "http://api.dagoogle.cn/news/nlist?cid=4/";
     String BASE_URL = "http://api.dagoogle.cn/news/";
 
-    @GET("nlist?cid={id}/")
-    Call<NewsBean> getNewsBean(@Path("id") int id);
+    @GET("nlist")
+    Call<NewsBean> getNewsBean(@Query("cid") int id);
 }
