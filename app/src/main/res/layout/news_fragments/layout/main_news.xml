@@ -5,12 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/main_news_rcviews"
-        android:scrollbars="vertical"
+    <com.cleveroad.pulltorefresh.firework.FireworkyPullToRefreshLayout
+        android:id="@+id/pullToRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </android.support.v7.widget.RecyclerView>
+        android:layout_height="match_parent"
+        app:ptr_fireworkStyle="modern"
+        app:ptr_rocketAnimDuration="1000">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/main_news_rcviews"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v7.widget.RecyclerView>
+    </com.cleveroad.pulltorefresh.firework.FireworkyPullToRefreshLayout>
 
 </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.example.ky4910.kynews.view.fragment.NewsTypeFragment;
+package com.example.ky4910.kynews.utils;
 
 import com.example.ky4910.kynews.model.entity.NewsBean;
 
