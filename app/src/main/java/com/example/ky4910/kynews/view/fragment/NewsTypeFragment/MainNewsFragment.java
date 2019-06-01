@@ -93,6 +93,11 @@ public class MainNewsFragment extends Fragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         rvAdapter = new MainNewsRvAdapter(this.getActivity(), datas.getData().getList());
         recyclerView.setAdapter(rvAdapter);
+        rvAdapter.setOnItemClickListener(new MainNewsRvAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Toast.makeText(getContext(), "You clicked item " + position , Toast.LENGTH_LONG).show();
+            }
+        });
     }
-
 }

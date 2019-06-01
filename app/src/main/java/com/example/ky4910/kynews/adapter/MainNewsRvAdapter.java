@@ -24,6 +24,16 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
     private List<NewsBean.DataBean.ListBean> listBeans;
     private LayoutInflater mLayoutInflater;
 
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClicked(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
+        this.mOnItemClickListener = clickListener;
+    }
+
     public MainNewsRvAdapter(Context context, List<NewsBean.DataBean.ListBean> listBeans) {
         this.mContext = context;
         this.listBeans = listBeans;
@@ -33,7 +43,9 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(mLayoutInflater.inflate(R.layout.news_item, null));
+        View view = mLayoutInflater.inflate(R.layout.news_item, null);
+        ViewHolder viewHolder = new ViewHolder(view, mOnItemClickListener);
+        return viewHolder;
     }
 
     @Override
@@ -50,15 +62,28 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
         return listBeans.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    //如果一个类要被声明为static的，只有一种情况，就是静态内部类。
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.news_image)
         ImageView imageView;
         @BindView(R.id.news_title)
         TextView textTitle;
         @BindView(R.id.news_time)
         TextView textTime;
-        public ViewHolder(View itemView) {
+
+        public ViewHolder(View itemView, final OnItemClickListener onClickListener) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (onClickListener != null) {
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION) {
+                            onClickListener.onItemClicked(view, position);
+                        }
+                    }
+                }
+            });
             ButterKnife.bind(this, itemView);
         }
     }
