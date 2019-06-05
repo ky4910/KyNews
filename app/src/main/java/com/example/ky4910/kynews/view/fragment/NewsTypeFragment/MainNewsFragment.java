@@ -1,5 +1,6 @@
 package com.example.ky4910.kynews.view.fragment.NewsTypeFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -20,6 +21,7 @@ import com.example.ky4910.kynews.adapter.MainNewsRvAdapter;
 import com.example.ky4910.kynews.model.entity.NewsBean;
 import com.example.ky4910.kynews.utils.ApiServer;
 import com.example.ky4910.kynews.utils.OkHttpManager;
+import com.example.ky4910.kynews.view.activity.NewsDetailActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -81,7 +83,7 @@ public class MainNewsFragment extends Fragment {
         NEED_REFRESH = false;
     }
 
-    private void initData(NewsBean datas) {
+    private void initData(final NewsBean datas) {
         recyclerView = view.findViewById(R.id.main_news_rcviews);
         //设置layoutManager,可以设置显示效果，是线性布局、grid布局，还是瀑布流布局
         //参数是：上下文、列表方向（横向还是纵向）、是否倒叙
@@ -96,7 +98,11 @@ public class MainNewsFragment extends Fragment {
         rvAdapter.setOnItemClickListener(new MainNewsRvAdapter.OnItemClickListener() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(getContext(), "You clicked item " + position , Toast.LENGTH_LONG).show();
+                String newURL = datas.getData().getList().get(position).getSource_url();
+                //fragment中启动activity，Intent第一个参数getActivity().getApplicationContext()
+                Intent intent = new Intent(getActivity().getApplicationContext(), NewsDetailActivity.class);
+                intent.putExtra("detail_news", newURL);
+                startActivity(intent);
             }
         });
     }
