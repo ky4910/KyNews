@@ -93,6 +93,7 @@ public class MainNewsFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),
                 DividerItemDecoration.VERTICAL));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         rvAdapter = new MainNewsRvAdapter(this.getActivity(), datas.getData().getList());
         recyclerView.setAdapter(rvAdapter);
         rvAdapter.setOnItemClickListener(new MainNewsRvAdapter.OnItemClickListener() {

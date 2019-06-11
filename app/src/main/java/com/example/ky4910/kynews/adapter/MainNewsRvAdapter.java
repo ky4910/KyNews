@@ -50,7 +50,6 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ImageView imageView;
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
         Glide.with(mContext).load(listBean.getHeadpic()).into(holder.imageView);
         holder.textTitle.setText(listBean.getTitle());
