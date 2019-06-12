@@ -24,6 +24,16 @@ public class SportsNewsRvAdapter extends RecyclerView.Adapter<SportsNewsRvAdapte
     private List<NewsBean.DataBean.ListBean> listBeans;
     private LayoutInflater mLayoutInflater;
 
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClicked(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
+        this.mOnItemClickListener = clickListener;
+    }
+
     public SportsNewsRvAdapter(Context mContext, List<NewsBean.DataBean.ListBean> listBeans) {
         this.mContext = mContext;
         this.listBeans = listBeans;
@@ -34,7 +44,7 @@ public class SportsNewsRvAdapter extends RecyclerView.Adapter<SportsNewsRvAdapte
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mLayoutInflater.inflate(R.layout.news_item,null);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view, mOnItemClickListener);
         return viewHolder;
     }
 
@@ -59,8 +69,20 @@ public class SportsNewsRvAdapter extends RecyclerView.Adapter<SportsNewsRvAdapte
         @BindView(R.id.news_time)
         TextView textTime;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView, final OnItemClickListener onClickListener) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    if (onClickListener != null) {
+                        int position = getAdapterPosition();
+                        //确保position值有效
+                        if (position != RecyclerView.NO_POSITION) {
+                            onClickListener.onItemClicked(view, position);
+                        }
+                    }
+                }
+            });
             ButterKnife.bind(this, itemView);
         }
     }

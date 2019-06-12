@@ -4,7 +4,6 @@ import com.example.ky4910.kynews.model.entity.NewsBean;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiServer {

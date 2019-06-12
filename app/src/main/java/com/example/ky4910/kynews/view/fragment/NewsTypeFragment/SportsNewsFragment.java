@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.adapter.SportsNewsRvAdapter;
@@ -72,5 +73,12 @@ public class SportsNewsFragment extends Fragment {
 
         rvAdapter = new SportsNewsRvAdapter(this.getActivity(), datas.getData().getList());
         recyclerView.setAdapter(rvAdapter);
+        rvAdapter.setOnItemClickListener(new SportsNewsRvAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                Toast.makeText(getContext(), "You clicked item " + position,
+                        Toast.LENGTH_LONG).show();
+            }
+        });
     }
 }
