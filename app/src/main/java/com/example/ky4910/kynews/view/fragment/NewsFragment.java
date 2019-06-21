@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.ky4910.kynews.R;
-import com.example.ky4910.kynews.adapter.NewsFragmentAdapter;
+import com.example.ky4910.kynews.adapter.NewsFragmentPageAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,7 +28,7 @@ public class NewsFragment extends Fragment{
     private PagerAdapter pagerAdapter;
 
     //tab titles
-    private final int[] TAB_TITLES = new int[]{R.string.mainNews, R.string.sportsNews, R.string.financeNews};
+    private final int[] TAB_TITLES = new int[]{R.string.mainNews, R.string.sportsNews, R.string.techNews};
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,7 +57,7 @@ public class NewsFragment extends Fragment{
     }
 
     private void initPager() {
-        pagerAdapter = new NewsFragmentAdapter(getChildFragmentManager());
+        pagerAdapter = new NewsFragmentPageAdapter(getFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
@@ -97,7 +97,7 @@ public class NewsFragment extends Fragment{
 
 /*
     private void initPager() {
-        pagerAdapter = new NewsFragmentAdapter(getSupportFragmentManager());
+        pagerAdapter = new NewsFragmentPageAdapter(getSupportFragmentManager());
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

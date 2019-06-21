@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">KyNews</string>
     <string name="mainNews">要闻</string>
-    <string name="financeNews">财经</string>
+    <string name="techNews">科技</string>
     <string name="sportsNews">体育</string>
     <string name="none">Nothing</string>
 
     <string-array name="allNewsTypes">
         <item>要闻</item>
-        <item>财经</item>
+        <item>科技</item>
         <item>体育</item>
     </string-array>
 

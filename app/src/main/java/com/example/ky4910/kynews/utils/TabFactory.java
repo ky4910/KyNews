@@ -9,8 +9,8 @@ public class TabFactory {
 
     static {
         mNewsTabTitles.add("要闻");
-        mNewsTabTitles.add("财经");
-        mNewsTabTitles.add("娱乐");
+        mNewsTabTitles.add("体育");
+        mNewsTabTitles.add("科技");
     }
 
 }
