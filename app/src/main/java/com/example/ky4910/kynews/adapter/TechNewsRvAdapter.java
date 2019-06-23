@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.model.entity.NewsBean;
+import com.example.ky4910.kynews.utils.PubtimeConverter;
 
 import java.util.List;
 
@@ -43,6 +44,8 @@ public class TechNewsRvAdapter extends RecyclerView.Adapter<TechNewsRvAdapter.Vi
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
         Glide.with(mContext).load(listBean.getHeadpic()).into(holder.imageView);
         holder.textTitle.setText(listBean.getTitle());
+        String realTime = PubtimeConverter.pubtimeToDate(String.format("%s", listBean.getPub_time()));
+        holder.textTime.setText(realTime);
     }
 
     @Override

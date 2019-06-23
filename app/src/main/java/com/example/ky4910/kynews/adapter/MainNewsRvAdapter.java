@@ -3,6 +3,7 @@ package com.example.ky4910.kynews.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.model.entity.NewsBean;
+import com.example.ky4910.kynews.utils.PubtimeConverter;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +58,10 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
         Glide.with(mContext).load(listBean.getHeadpic()).into(holder.imageView);
         holder.textTitle.setText(listBean.getTitle());
-//        holder.textTitle.setText(listBean.getPub_time());
+        Log.e("kimber", "pubTime is " + listBean.getPub_time() + "\n"
+                + "title is " + listBean.getTitle());
+        String realTime = PubtimeConverter.pubtimeToDate(String.format("%s", listBean.getPub_time()));
+        holder.textTime.setText(realTime);
     }
 
     @Override
