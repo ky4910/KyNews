@@ -1,6 +1,7 @@
 package com.example.ky4910.kynews.adapter;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.model.entity.NewsBean;
 import com.example.ky4910.kynews.utils.PubtimeConverter;
@@ -56,9 +60,13 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
-        Glide.with(mContext).load(listBean.getHeadpic()).into(holder.imageView);
+        RequestOptions options = new RequestOptions()
+                .placeholder(R.drawable.default_img)
+                .error(R.drawable.default_img)
+                .override(336, 210);
+        Glide.with(mContext).load(listBean.getHeadpic()).apply(options).into(holder.imageView);
         holder.textTitle.setText(listBean.getTitle());
-        Log.e("kimber", "pubTime is " + listBean.getPub_time() + "\n"
+        Log.i("kimber", "pubTime is " + listBean.getPub_time() + "\n"
                 + "title is " + listBean.getTitle());
         String realTime = PubtimeConverter.pubtimeToDate(String.format("%s", listBean.getPub_time()));
         holder.textTime.setText(realTime);
