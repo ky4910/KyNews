@@ -1,5 +1,6 @@
 package com.example.ky4910.kynews.view.fragment.NewsTypeFragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,6 +11,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,9 +42,25 @@ public class MainNewsFragment extends Fragment {
     public MainNewsFragment() {
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.e("kimber", "MainNews onAttach!");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.e("kimber", "MainNews onCreate!");
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.main_news, container, false);
+        initRetrofit();
+        return view;
+        /*
         if (NEED_REFRESH) {
             initRetrofit();
         }
@@ -60,7 +78,7 @@ public class MainNewsFragment extends Fragment {
                 }, 5000);
             }
         });
-        return view;
+        */
 //        return inflater.inflate(R.layout.main_news, container, false);
     }
 

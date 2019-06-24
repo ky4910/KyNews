@@ -13,16 +13,11 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.model.entity.NewsBean;
 import com.example.ky4910.kynews.utils.PubtimeConverter;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -61,7 +56,6 @@ public class MainNewsRvAdapter extends RecyclerView.Adapter<MainNewsRvAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         NewsBean.DataBean.ListBean listBean = listBeans.get(position);
         RequestOptions options = new RequestOptions()
-                .placeholder(R.drawable.default_img)
                 .error(R.drawable.default_img)
                 .override(336, 210);
         Glide.with(mContext).load(listBean.getHeadpic()).apply(options).into(holder.imageView);
