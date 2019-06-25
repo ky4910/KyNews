@@ -34,6 +34,7 @@ public class MainNewsFragment extends Fragment {
     private View view;
 //    @BindView(R.id.main_news_rcviews)
     private RecyclerView recyclerView;
+    public static final String NEWS_BASEURL = "http://api.dagoogle.cn/news/";
 
     MainNewsRvAdapter rvAdapter;
     FireworkyPullToRefreshLayout mPullToRefresh;
@@ -84,12 +85,13 @@ public class MainNewsFragment extends Fragment {
 
     private void initRetrofit() {
         OkHttpManager httpManager = new OkHttpManager();
-        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient())
+        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient(), NEWS_BASEURL)
                 .create(ApiServer.class);
         apiServer.getNewsBean(9).enqueue(new Callback<NewsBean>() {
             @Override
             public void onResponse(Call<NewsBean> call, Response<NewsBean> response) {
                 NewsBean body = response.body();
+                Log.e("kimber", "count is " + body.getData().getList().size());
                 initData(body);
             }
 

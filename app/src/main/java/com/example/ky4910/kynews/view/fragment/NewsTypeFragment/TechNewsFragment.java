@@ -29,6 +29,7 @@ public class TechNewsFragment extends Fragment {
     View view;
     private RecyclerView recyclerView;
     TechNewsRvAdapter rvAdapter;
+    public static final String NEWS_BASEURL = "http://api.dagoogle.cn/news/";
 
     public TechNewsFragment() {
     }
@@ -55,7 +56,7 @@ public class TechNewsFragment extends Fragment {
 
     private void initRetrofit() {
         OkHttpManager httpManager = new OkHttpManager();
-        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient())
+        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient(), NEWS_BASEURL)
                 .create(ApiServer.class);
         apiServer.getNewsBean(7).enqueue(new Callback<NewsBean>() {
             @Override

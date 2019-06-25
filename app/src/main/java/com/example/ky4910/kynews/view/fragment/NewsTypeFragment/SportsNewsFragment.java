@@ -30,6 +30,7 @@ public class SportsNewsFragment extends Fragment {
 
     private View view;
     private RecyclerView recyclerView;
+    public static final String NEWS_BASEURL = "http://api.dagoogle.cn/news/";
 
     SportsNewsRvAdapter rvAdapter;
 
@@ -58,7 +59,7 @@ public class SportsNewsFragment extends Fragment {
 
     public void initRetrofit() {
         OkHttpManager httpManager = new OkHttpManager();
-        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient())
+        ApiServer apiServer = httpManager.getRetrofit(httpManager.okHttpClient(), NEWS_BASEURL)
                 .create(ApiServer.class);
         apiServer.getNewsBean(6).enqueue(new Callback<NewsBean>() {
             @Override
