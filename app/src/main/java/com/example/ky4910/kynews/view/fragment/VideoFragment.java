@@ -23,6 +23,7 @@ import java.util.List;
 
 public class VideoFragment extends Fragment {
 
+    private View view;
     RecyclerView recyclerView;
     VideoRvAdapter videoAdapter;
     public List<VideoBean.TrailersBean> trailersBeanList;
@@ -33,13 +34,14 @@ public class VideoFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initVideoData();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_videos, container,false);
+        view = inflater.inflate(R.layout.fragment_videos, container,false);
+        initVideoData();
+        return view;
     }
 
     public void initVideoData() {
@@ -60,6 +62,8 @@ public class VideoFragment extends Fragment {
                     " movieName: " + trailer.getMovieName() +
                     " videoTitle: " + trailer.getVideoTitle());
         }
+        recyclerView = view.findViewById(R.id.video_rv);
+        videoAdapter = new VideoRvAdapter(getContext(), trailersBeanList);
     }
 
     public String convertStreamToString(InputStream inputStream) {
