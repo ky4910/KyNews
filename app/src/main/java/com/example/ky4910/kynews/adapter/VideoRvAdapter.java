@@ -38,7 +38,7 @@ public class VideoRvAdapter extends RecyclerView.Adapter<VideoRvAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         VideoBean.TrailersBean trailersBean = trailersBeanList.get(position);
-        holder.videoLentgh.setText("2minites");
+        holder.videoLentgh.setText(trailersBean.getVideoLength());
         holder.videoName.setText(trailersBean.getMovieName());
         holder.videoType.setText(trailersBean.getType().get(0));
     }
@@ -50,8 +50,8 @@ public class VideoRvAdapter extends RecyclerView.Adapter<VideoRvAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-//        @BindView(R.id.video_player)
-//        VideoPlayerView playerView;
+        @BindView(R.id.video_player)
+        VideoPlayerView playerView;
         @BindView(R.id.video_name)
         TextView videoName;
         @BindView(R.id.video_type)
