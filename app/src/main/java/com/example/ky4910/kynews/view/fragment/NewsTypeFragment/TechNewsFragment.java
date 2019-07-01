@@ -1,6 +1,7 @@
 package com.example.ky4910.kynews.view.fragment.NewsTypeFragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,12 +14,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.adapter.TechNewsRvAdapter;
 import com.example.ky4910.kynews.model.entity.NewsBean;
 import com.example.ky4910.kynews.utils.ApiServer;
 import com.example.ky4910.kynews.utils.OkHttpManager;
+import com.example.ky4910.kynews.view.activity.NewsDetailActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -85,5 +88,15 @@ public class TechNewsFragment extends Fragment {
 
         rvAdapter = new TechNewsRvAdapter(this.getActivity(), datas.getData().getList());
         recyclerView.setAdapter(rvAdapter);
+        rvAdapter.setOnItemClickListener(new TechNewsRvAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClicked(View view, int position) {
+                String newUrl = datas.getData().getList().get(position).getSource_url();
+                //fragment中启动activity，Intent第一个参数getActivity().getApplicationContext()
+                Intent intent = new Intent(getActivity().getApplicationContext(), NewsDetailActivity.class);
+                intent.putExtra("detail_news", newUrl);
+                startActivity(intent);
+            }
+        });
     }
 }

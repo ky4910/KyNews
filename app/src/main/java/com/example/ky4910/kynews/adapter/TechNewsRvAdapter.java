@@ -1,8 +1,6 @@
 package com.example.ky4910.kynews.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,8 +12,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.transition.Transition;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.model.entity.NewsBean;
 import com.example.ky4910.kynews.utils.PubtimeConverter;
@@ -30,6 +26,15 @@ public class TechNewsRvAdapter extends RecyclerView.Adapter<TechNewsRvAdapter.Vi
     private Context mContext;
     private List<NewsBean.DataBean.ListBean> listBeans;
     private LayoutInflater mLayoutInflater;
+    private OnItemClickListener mOnItemClickListener;
+
+    public interface OnItemClickListener {
+        void onItemClicked(View view, int position);
+    }
+
+    public void setOnItemClickListener(OnItemClickListener clickListener) {
+        this.mOnItemClickListener = clickListener;
+    }
 
     public TechNewsRvAdapter(Context context, List<NewsBean.DataBean.ListBean> listBeans) {
         this.mContext = context;
@@ -41,7 +46,7 @@ public class TechNewsRvAdapter extends RecyclerView.Adapter<TechNewsRvAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = mLayoutInflater.inflate(R.layout.news_item, null);
-        ViewHolder viewHolder = new ViewHolder(view);
+        ViewHolder viewHolder = new ViewHolder(view, mOnItemClickListener);
         return viewHolder;
     }
 
@@ -73,8 +78,20 @@ public class TechNewsRvAdapter extends RecyclerView.Adapter<TechNewsRvAdapter.Vi
         @BindView(R.id.news_time)
         TextView textTime;
 
-        public ViewHolder(View itemView) {
+        public ViewHolder(View itemView, final OnItemClickListener onClickListener) {
             super(itemView);
+            itemView.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    if (onClickListener != null) {
+                        int position = getAdapterPosition();
+                        //确保position值有效
+                        if (position != RecyclerView.NO_POSITION) {
+                            onClickListener.onItemClicked(view, position);
+                        }
+                    }
+                }
+            });
             ButterKnife.bind(this, itemView);
         }
     }
