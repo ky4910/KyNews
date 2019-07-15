@@ -3,55 +3,14 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.example.ky4910.kynews.utils.VideoPlayerView
-        android:id="@+id/video_player"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </com.example.ky4910.kynews.utils.VideoPlayerView>
+        android:layout_height="8dp"
+        android:background="@color/white" />
 
-    <RelativeLayout
+    <com.example.ky4910.kynews.utils.KyVideoPlayer
+        android:id="@+id/ky_video_player"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <!--视频播放界面-->
-        <TextureView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:visibility="visible"/>
-
-        <!--视频播放控制界面-->
-        <com.example.ky4910.kynews.utils.VideoPlayerController
-            android:id="@+id/mediaController"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </com.example.ky4910.kynews.utils.VideoPlayerController>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/video_detail"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/video_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Video Name"/>
-
-        <TextView
-            android:id="@+id/video_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/video_name"
-            android:text="Comedy"/>
-
-        <TextView
-            android:id="@+id/video_length"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/video_type"
-            android:text="01:30"/>
-
-    </RelativeLayout>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>
