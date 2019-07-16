@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.adapter.VideoRvAdapter;
@@ -39,8 +40,12 @@ public class VideoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        /*
         view = inflater.inflate(R.layout.fragment_videos, container,false);
         initVideoData();
+        return view;
+        */
+        view = inflater.inflate(R.layout.video_player_controller, container, false);
         return view;
     }
 

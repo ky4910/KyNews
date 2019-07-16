@@ -15,4 +15,14 @@
     <string name="videos">视频</string>
     <string name="mine">我的</string>
 
+    <string name="buffering">正在缓冲..</string>
+    <string name="replay">重新播放</string>
+    <string name="share">分享</string>
+    <string name="play_error">播放错误，请重试</string>
+    <string name="click_retry">点击重试</string>
+    <string name="defalut_title">用于在界面上显示一个进度条，表示我们的程序正在加载一些数据</string>
+    <string name="start_timestamp">00:00</string>
+    <string name="default_duration">00:00</string>
+    <string name="delimiter">/</string>
+
 </resources>
