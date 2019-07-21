@@ -32,7 +32,6 @@ import retrofit2.Response;
 public class MainNewsFragment extends Fragment {
 
     private View view;
-//    @BindView(R.id.main_news_rcviews)
     private RecyclerView recyclerView;
     public static final String NEWS_BASEURL = "http://api.dagoogle.cn/news/";
 

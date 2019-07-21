@@ -69,9 +69,9 @@ public class KyVideoPlayerController extends FrameLayout
         mImage = findViewById(R.id.iv_image);
         mCenterStart = findViewById(R.id.center_start);
 
-        ll_mTop = findViewById(R.id.top);
+        ll_mTop = findViewById(R.id.ll_top);
         mBack = findViewById(R.id.iv_back);
-        mTitle = findViewById(R.id.title);
+        mTitle = findViewById(R.id.tv_title);
 
         ll_mBottom = findViewById(R.id.ll_bottom);
         mRestartPause = findViewById(R.id.iv_restart_pause);

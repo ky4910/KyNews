@@ -3,6 +3,7 @@ package com.example.ky4910.kynews.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,8 @@ public class VideoRvAdapter extends RecyclerView.Adapter<VideoRvAdapter.MyViewHo
     private Context mContext;
     private List<VideoBean> videosBeanList;
 
+    public static final String TAG = "VIDEO_RV_ADAPTER";
+
     public VideoRvAdapter(Context context, List<VideoBean> videoBeans) {
         this.mContext = context;
         this.videosBeanList = videoBeans;
@@ -36,7 +39,12 @@ public class VideoRvAdapter extends RecyclerView.Adapter<VideoRvAdapter.MyViewHo
         View itemView = LayoutInflater.from(mContext).inflate(R.layout.video_item, null);
         MyViewHolder myViewHolder = new MyViewHolder(itemView);
         KyVideoPlayerController videoController = new KyVideoPlayerController(mContext);
-        myViewHolder.setController(videoController);
+        try {
+            myViewHolder.setController(videoController);
+        } catch (Exception e){
+            Log.e(TAG, e.getMessage());
+        }
+
         return myViewHolder;
     }
 

@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.view.ViewGroup;
 import com.example.ky4910.kynews.R;
 import com.example.ky4910.kynews.adapter.VideoRvAdapter;
 import com.example.ky4910.kynews.model.entity.VideoBean;
-import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -38,7 +36,6 @@ public class VideoFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initData();
     }
 
     @Nullable
@@ -47,13 +44,14 @@ public class VideoFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_videos, container, false);
         recyclerView = view.findViewById(R.id.video_rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        initData();
         if (videoAdapter == null) {
             videoAdapter = new VideoRvAdapter(this.getActivity(), videoBeanList);
             recyclerView.setAdapter(videoAdapter);
         } else {
             videoAdapter.notifyDataSetChanged();
         }
-        recyclerView.setAdapter(videoAdapter);
+//        recyclerView.setAdapter(videoAdapter);
         return view;
     }
 
