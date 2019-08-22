@@ -51,7 +51,6 @@ public class VideoFragment extends Fragment {
         } else {
             videoAdapter.notifyDataSetChanged();
         }
-//        recyclerView.setAdapter(videoAdapter);
         return view;
     }
 
@@ -89,28 +88,5 @@ public class VideoFragment extends Fragment {
         videoBeanList.add(bean6);
         videoBeanList.add(bean7);
         videoBeanList.add(bean8);
-    }
-
-    public String convertStreamToString(InputStream inputStream) {
-        BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(inputStream));
-        StringBuilder stringBuilder = new StringBuilder();
-        String line = null;
-
-        try {
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                inputStream.close();
-                bufferedReader.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return stringBuilder.toString();
     }
 }
