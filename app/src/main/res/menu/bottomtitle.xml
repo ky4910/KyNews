@@ -11,10 +11,10 @@
         android:icon="@drawable/video_grey_48dp"
         android:id="@+id/menu_videos"
         />
-    <item
-        android:title="@string/mine"
-        android:icon="@drawable/person_grey_48dp"
-        android:id="@+id/menu_person"
-        />
+    <!--<item-->
+        <!--android:title="@string/mine"-->
+        <!--android:icon="@drawable/person_grey_48dp"-->
+        <!--android:id="@+id/menu_person"-->
+        <!--/>-->
 
 </menu>

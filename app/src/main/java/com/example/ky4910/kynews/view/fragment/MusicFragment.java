@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.ky4910.kynews.R;
 
-public class PersonFragment extends Fragment {
+public class MusicFragment extends Fragment {
 
-    public PersonFragment() {
+    public MusicFragment() {
     }
 
     @Override
@@ -23,8 +23,7 @@ public class PersonFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_person, container, false);
+        return inflater.inflate(R.layout.fragment_music, container, false);
     }
 }
-
 

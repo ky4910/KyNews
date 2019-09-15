@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.ky4910.kynews.view.fragment.NewsFragment;
-import com.example.ky4910.kynews.view.fragment.PersonFragment;
+import com.example.ky4910.kynews.view.fragment.MusicFragment;
 import com.example.ky4910.kynews.view.fragment.VideoFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.menu_videos:
                             selectedFragment = new VideoFragment();
                             break;
-                        case R.id.menu_person:
-                            selectedFragment = new PersonFragment();
-                            break;
+
+//                        case R.id.menu_person:
+//                            selectedFragment = new MusicFragment();
+//                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
